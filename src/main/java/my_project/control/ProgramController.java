@@ -100,6 +100,20 @@ public class ProgramController extends Server {
     @Override
     public void processClosingConnection(String pClientIP, int pClientPort) {
         this.send(pClientIP,pClientPort,"Tschüssi!");
+        iPRemove(pClientIP);
     }
+
+    public void iPSearch(String iP) {
+        cl.toFirst();
+        if(!cl.getContent()[0].equals(iP)) {
+            cl.next();
+        }
+    }
+
+    public void iPRemove(String iP) {
+        iPSearch(iP);
+        cl.remove();
+    }
+
 }
 
